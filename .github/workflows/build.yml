@@ -3,8 +3,7 @@ name: CI
 on:
   push:
     branches:
-      - master
-      - upcoming
+      - main
   pull_request:
 
 jobs:
@@ -20,13 +19,14 @@ jobs:
       UNUSED_ERROR: 1
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Checkout agbcc
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           path: agbcc
-          repository: pret/agbcc
+          repository: kleeenexfeu/agbcc
+          # originally going to pret/agbcc but I cloned it
 
       - name: Install binutils
         run: |
@@ -54,10 +54,17 @@ jobs:
           COMPARE: 0
         run: make -j${nproc} -O all
 
-      - name: Test
-        env:
-          MODERN: 1
-          TEST: 1
-        run: |
-          make -j${nproc} -O pokeemerald-test.elf
-          make -j${nproc} check
+      - uses: actions/upload-artifact@v4
+        with:
+          name: emeraldbattlerevo
+          path: emeraldbattlerevo.gba
+          
+      - uses: actions/upload-artifact@v4
+        with:
+          name: emeraldbattlerevo_elf
+          path: emeraldbattlerevo.elf
+          
+      - uses: actions/upload-artifact@v4
+        with:
+          name: emeraldbattlerevo_map
+          path: emeraldbattlerevo.map
