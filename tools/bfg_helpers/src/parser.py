@@ -58,19 +58,19 @@ def parse_stats(stats, str):
     st = stat.strip().split(' ')
 
     # Switch on the stat
-    # match st[1].lower():
+    match st[1].lower():
 
-    if st[1].lower() == "hp": 
+      case "hp": 
         stats['hp'] = int(st[0])
-    elif st[1].lower() ==  "atk": 
+      case "atk": 
         stats['atk'] = int(st[0])
-    elif st[1].lower() ==  "def": 
+      case "def": 
         stats['def'] = int(st[0])
-    elif st[1].lower() ==  "spa": 
+      case "spa": 
         stats['spa'] = int(st[0])
-    elif st[1].lower() ==  "spd": 
+      case "spd": 
         stats['spd'] = int(st[0])
-    elif st[1].lower() ==  "spe": 
+      case "spe": 
         stats['spe'] = int(st[0])
 
   # Return the updated object
