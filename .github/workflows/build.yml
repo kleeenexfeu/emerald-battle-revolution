@@ -42,9 +42,9 @@ jobs:
         # gcc-arm-none-eabi is only needed for the modern build
         # as an alternative to dkP
 
-      - name: Install Dependencies
-        run: |
-          ./init_deps.sh
+      #- name: Install Dependencies
+      #  run: |
+      #    ./init_deps.sh
 
       - name: Install agbcc
         run: |
