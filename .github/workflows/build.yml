@@ -28,6 +28,12 @@ jobs:
           repository: kleeenexfeu/agbcc
           # originally going to pret/agbcc but I cloned it
 
+      #- name: Python
+      #  uses: actions/setup-python@v5
+      #  with:
+      #    python-version: '3.10'
+      # for now this solution doesn't work
+
       - name: Install binutils
         run: |
           sudo apt update
